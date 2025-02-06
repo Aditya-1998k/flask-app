@@ -3,7 +3,9 @@ pipeline {
 
   stages {
     stage('Clone Repo') {
-      git 'https://github.com/Aditya-1998k/flask-app.git'
+      steps {
+        git 'https://github.com/Aditya-1998k/flask-app.git'
+      }
     }
 
     stage('Build Docker Image') {
