@@ -1,0 +1,14 @@
+- name: Deploy Flask APP to Minikube
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Copy Kubernetes files
+      copy:
+        src: ../k8s/
+        dest: /tmp/k8s/
+
+    -name: Apply Kubernetes Deployment
+     command: kubectl apply -f /tmp/k8s/deploymnet.yml
+
+    -name: Apply Kubernetes Service
+     command: kubectl apply -f /tmp/k8s/service.yml
